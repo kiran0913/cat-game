@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cat & Fish</title>
+  </head>
+  <body>
+    <main class="wrap">
+      <header class="hud">
+        <div class="hud__row">
+          <div class="hud__item"><span class="label">Score</span> <span id="score">0</span></div>
+          <div class="hud__item"><span class="label">Lives</span> <span id="lives">3</span></div>
+          <div class="hud__item"><span class="label">Coins</span> <span id="coins">0</span></div>
+          <div class="hud__item"><span class="label">Best</span> <span id="best">0</span></div>
+          <div class="hud__item"><span class="label">x</span><span id="mult">1.0</span></div>
+        </div>
+
+        <div class="hud__help">
+          Move: <kbd>WASD</kbd>/<kbd>←↑↓→</kbd> • Dash: <kbd>Space</kbd> • Pause: <kbd>P</kbd> • Restart: <kbd>R</kbd>
+        </div>
+      </header>
+
+      <canvas id="game" width="900" height="520"></canvas>
+
+      <footer class="tip">
+        Collect <b>fish</b> 🐟 (golden fish is huge points), avoid <b>dogs</b> 🐶.
+        Earn <b>coins</b> → buy upgrades after game over.
+      </footer>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
