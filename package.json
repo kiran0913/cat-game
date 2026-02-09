@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "build:ios": "vite build --mode ios",
+    "build:docs": "npm run build && node scripts/copy-dist-to-docs.cjs",
     "preview": "vite preview",
     "cap:sync": "npm run build:ios && npx cap sync ios",
     "cap:ios": "npm run cap:sync && npx cap open ios"
