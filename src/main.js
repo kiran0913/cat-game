@@ -2,10 +2,16 @@ import "./style.css";
 
 // --- Canvas setup (high-DPI for crisp rendering) ---
 const canvas = document.getElementById("game");
-const ctx = canvas.getContext("2d", {
-  alpha: true,
-  desynchronized: true, // Lower latency where supported
-});
+let ctx;
+try {
+  ctx = canvas.getContext("2d", {
+    alpha: true,
+    desynchronized: true,
+  });
+} catch (_) {
+  ctx = canvas.getContext("2d");
+}
+if (!ctx) throw new Error("Canvas 2D not supported");
 const dpr = Math.min(typeof window !== "undefined" ? window.devicePixelRatio || 1 : 1, 2);
 canvas.width = 900 * dpr;
 canvas.height = 520 * dpr;
