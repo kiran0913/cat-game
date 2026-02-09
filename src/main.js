@@ -89,13 +89,8 @@ canvas.addEventListener("touchmove", (e) => {
   if (t) touchPos = getCanvasCoords(t.clientX, t.clientY);
 }, { passive: false });
 
-canvas.addEventListener("touchend", (e) => {
-  if (e.touches.length === 0) touchPos = null;
-});
-canvas.addEventListener("touchcancel", () => { touchPos = null; });
-
-// Tap/click: tutorial dismiss, restart (game over), or resume (paused)
-canvas.addEventListener("click", (e) => {
+let tapHandledByTouch = false;
+function handleTap() {
   if (state.showTutorial) {
     state.showTutorial = false;
     state.paused = false;
@@ -115,6 +110,21 @@ canvas.addEventListener("click", (e) => {
     setMusicVolume(0.08);
     SOUND.click();
   }
+}
+
+canvas.addEventListener("touchend", (e) => {
+  if (e.touches.length === 0) {
+    handleTap();
+    tapHandledByTouch = true;
+    setTimeout(() => { tapHandledByTouch = false; }, 400);
+    touchPos = null;
+  }
+});
+canvas.addEventListener("touchcancel", () => { touchPos = null; });
+
+canvas.addEventListener("click", (e) => {
+  if (tapHandledByTouch) return;
+  handleTap();
 });
 
 // Pause when tab is hidden (saves battery, avoids runaway state)
