@@ -1,0 +1,10 @@
+{
+  "name": "Cat & Fish",
+  "short_name": "Cat & Fish",
+  "description": "Collect fish, avoid dogs, build combos.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "theme_color": "#004d5c",
+  "background_color": "#004d5c"
+}
