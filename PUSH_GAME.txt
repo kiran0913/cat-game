@@ -1,0 +1,12 @@
+Run these 4 commands ONE BY ONE (in the cat-game folder):
+
+  git add .
+  git status
+  git commit -m "Update game"
+  git push origin main
+
+"git add ." adds docs + any other changed files. Then commit and push.
+
+If after "git add ." the status still says "nothing to commit", your docs are already pushed and the game may already be live at: https://kiran0913.github.io/cat-game/
+
+Just make sure GitHub → Settings → Pages → Source is "Deploy from a branch", Branch: main, Folder: /docs

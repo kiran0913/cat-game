@@ -46,7 +46,12 @@ Wait 1–2 minutes, then open **https://kiran0913.github.io/cat-game/** on your 
 
 ## When you change the game later
 
-1. Run **Step 1** again: `npm run build:docs`
-2. Run **Step 2** again: `git add docs` then `git commit` then `git push`
+**Order matters:** run `git add` first, then `git commit`, then `git push`.
+
+1. `npm run build:docs`
+2. `git add docs`
+3. `git status`   ← you should see "docs" or "modified: docs" in green
+4. `git commit -m "Update game"`
+5. `git push origin main`
 
 No need to change Settings again. The site will update automatically after you push.
