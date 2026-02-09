@@ -2,8 +2,16 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="description" content="Cat & Fish — collect fish, avoid dogs, build combos. Play with keyboard or touch." />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Cat & Fish" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="theme-color" content="#004d5c" />
     <title>Cat & Fish</title>
+    <link rel="apple-touch-icon" href="./icon-192.png" />
+    <link rel="manifest" href="./manifest.json" />
   </head>
   <body>
     <main class="wrap">
@@ -13,19 +21,50 @@
           <div class="hud__item"><span class="label">Lives</span> <span id="lives">3</span></div>
           <div class="hud__item"><span class="label">Coins</span> <span id="coins">0</span></div>
           <div class="hud__item"><span class="label">Best</span> <span id="best">0</span></div>
-          <div class="hud__item"><span class="label">x</span><span id="mult">1.0</span></div>
+          <div class="hud__item"><span class="label">Combo</span> <span id="mult">1.0</span></div>
+          <button type="button" id="settings-btn" class="settings-btn" aria-label="Settings" title="Settings">⚙️</button>
+        </div>
+
+        <div id="combo-row" class="hud__row hud__row--combo" aria-label="Combo timer">
+          <div class="combo-bar-wrap">
+            <div class="combo-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" id="combo-bar" style="width:100%"></div>
+          </div>
+        </div>
+
+        <div id="settings-panel" class="settings-panel hidden" aria-hidden="true">
+          <div class="settings-panel__row">
+            <label>
+              <span>Sound effects</span>
+              <div class="switch-wrap">
+                <span class="switch-label-off" aria-hidden="true">Off</span>
+                <input type="checkbox" id="setting-sfx" checked title="Sound effects on/off" />
+                <span class="switch-label-on" aria-hidden="true">On</span>
+              </div>
+            </label>
+          </div>
+          <div class="settings-panel__row">
+            <label>
+              <span>Background music</span>
+              <div class="switch-wrap">
+                <span class="switch-label-off" aria-hidden="true">Off</span>
+                <input type="checkbox" id="setting-music" checked title="Background music on/off" />
+                <span class="switch-label-on" aria-hidden="true">On</span>
+              </div>
+            </label>
+          </div>
         </div>
 
         <div class="hud__help">
-          Move: <kbd>WASD</kbd>/<kbd>←↑↓→</kbd> • Dash: <kbd>Space</kbd> • Pause: <kbd>P</kbd> • Restart: <kbd>R</kbd>
+          <span class="hud__keys">Move: <kbd>WASD</kbd>/<kbd>←↑↓→</kbd> • Dash: <kbd>Space</kbd> • Pause: <kbd>P</kbd> • Restart: <kbd>R</kbd></span>
+          <span class="hud__touch">Touch & hold on the game to move the cat</span>
         </div>
       </header>
 
-      <canvas id="game" width="900" height="520"></canvas>
+      <canvas id="game" width="900" height="520" aria-label="Game canvas: move cat to collect fish and avoid dogs"></canvas>
 
       <footer class="tip">
-        Collect <b>fish</b> 🐟 (golden fish is huge points), avoid <b>dogs</b> 🐶.
-        Earn <b>coins</b> → buy upgrades after game over.
+        Collect fish 🐟 (golden fish is huge points), avoid dogs 🐶.
+        Earn coins → buy upgrades after game over.
       </footer>
     </main>
 

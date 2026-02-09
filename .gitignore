@@ -1,6 +1,11 @@
-cat > .gitignore <<'EOF'
 node_modules/
 dist/
 .vite/
 .DS_Store
-EOF
+*.log
+.env
+.env.*
+cat-game.zip
+
+# Capacitor iOS (optional: commit ios/ for team, or ignore and run cap add ios when needed)
+# ios/

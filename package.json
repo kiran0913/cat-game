@@ -6,9 +6,18 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "build:ios": "vite build --mode ios",
+    "preview": "vite preview",
+    "cap:sync": "npm run build:ios && npx cap sync ios",
+    "cap:ios": "npm run cap:sync && npx cap open ios"
   },
   "devDependencies": {
+    "@capacitor/cli": "^6.0.0",
+    "@capacitor/core": "^6.0.0",
+    "@capacitor/ios": "^6.0.0",
     "vite": "^5.0.0"
+  },
+  "capacitor": {
+    "platforms": ["ios"]
   }
 }

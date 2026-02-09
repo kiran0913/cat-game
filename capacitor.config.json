@@ -1,0 +1,11 @@
+{
+  "appId": "com.catfish.game",
+  "appName": "Cat & Fish",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https"
+  },
+  "ios": {
+    "contentInset": "automatic"
+  }
+}
